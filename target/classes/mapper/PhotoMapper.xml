@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasofti.ssm.dao.UserMapper">
+<insert id="save" >
+insert into Photo(uploader,path,name,exif,description,upLoadTime) values (#{uploader},#{path},#{name},#{exif},#{description},#{upLoadTime})
+</insert>
+
+<select id="selectAll" resultType="photo">
+select * from Photo
+</select>
+
+<select id="getRecordByPhotoId" resultType="photo">
+select * from Photo where id=#{id}
+</select>
+
+<select id="getRecordByPhotoName" resultType="photo">
+select * from Photo where name=#{name}
+</select>
+
+<select id="getRecordByUploader" resultType="photo">
+select * from Photo where uploader=#{uploader}
+</select>
+
+<select id="getRecordByUploadTime" resultType="photo">
+select * from Photo where upLoadTime=#{upLoadTime}
+</select>
+
+<update id="updateDescriptionById" parameterType="">
+update Photo set description=#{description} where id=#{id}
+</update>
+<select id="getUploadTimeByID" resultType="photo">
+select id,uploadTime from Photo where id=#{id}
+</select>
+<select id="getUploaderById" resultType="photo">
+select id,uploader from Photo where id=#{id}
+</select>
+<select id="getPathById" resultType="photo">
+select id,path from Photo where id=#{id}
+</select>
+<select id="getNameById" resultType="photo">
+select id,name from Photo where id=#{id}
+</select>
+<select id="getExifById" resultType="photo">
+select id,exif from Photo where id=#{id}
+</select>
+<select id="getDescriptionById" resultType="photo">
+select id,description from Photo where id=#{id}
+</select>
+
+</mapper>

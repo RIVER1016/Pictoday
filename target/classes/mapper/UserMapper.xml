@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasofti.ssm.dao.UserMapper">
+<insert id="save">
+insert into User(email,nickname,avatar,disabled,password,credit) values (#{email},#{nickname},#{avatar},#{disabled},#{password},#{credit})
+</insert>
+
+<select id="selectAll" resultType="user">
+select * from User
+</select>
+
+<select id="selectUserById" resultType="user">
+select * from User where id=#{id}
+</select>
+<select id="getRecordByEmail" resultType="user">
+select * from User where email=#{email}
+</select>
+<select id="getRecordByDisabled" resultType="user">
+select * from User where disabled=#{disabled}
+</select>
+<select id="getRecordByCredit" resultType="user">
+select * from User where credit in(#{mincredit},#{maxcredit})
+</select>
+<update id="setAvatar">
+update User set avatar=#{avatar} where id=#{id}
+</update>
+<update id="setCredit">
+update User set credit=#{credit} where id=#{id}
+</update>
+
+<select id="getEmail" resultType="user">
+select id,email from User where id =#{id}
+</select>
+<select id="getNickname" resultType="user">
+select id,nickname from User where id =#{id}
+</select>
+
+<select id="getAvatar" resultType="user">
+select id,avatar from User where id =#{id}
+</select>
+<select id="getDisabled" resultType="user">
+select id,disabled from User where id =#{id}
+</select>
+<select id="getPassword" resultType="user">
+select id,password from User where id =#{id}
+</select>
+<select id="getCredit" resultType="user">
+select id,credit from User where id =#{id}
+</select>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasofti.ssm.dao.UserMapper">
+<insert id="insert" parameterType="String">
+insert into Download(user,time,photo) values (#{name},#{time},#{photo})
+</insert>
+
+<select id="selectAll" resultType="Download">
+select * from Download
+</select>
+
+<select id="getRecordByPhoto"  resultType="download">
+select * from Download where photo=#{photo}
+</select>
+<select id="getRecordByUser" resultType="download">
+select * from Download where user=#{user}
+</select>
+
+<select id="getRecordById" resultType="download">
+select * from Download where id=#{id}
+</select>
+
+<select id="getDownloadTime" resultType="download">
+select id,time from Download where id=#{id}
+</select>
+
+<select id="getUser" resultType="download">
+select id,user from Download where id=#{id}
+</select>
+
+<select id="getPhoto" resultType="download">
+select id,photo from Download where id=#{id}
+</select>
+
+</mapper>
